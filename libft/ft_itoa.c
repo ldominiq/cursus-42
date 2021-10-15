@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_itoa.c                                          :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: ldominiq <marvin@42lausanne.ch>            +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2021/10/15 16:59:20 by ldominiq          #+#    #+#             */
+/*   Updated: 2021/10/15 16:59:24 by ldominiq         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "libft.h"
 
 int	ft_intlen(int n)
@@ -24,12 +36,16 @@ char	*ft_itoa(int n)
 	str = malloc((len + 1) * sizeof(char));
 	if (str == NULL)
 		return (NULL);
+	if (n == -2147483648)
+		return (ft_strdup("-2147483648"));
+	str[len--] = 0;
+	if (n == 0)
+		str[0] = '0';
 	if (n < 0)
 	{
 		n = -n;
 		str[0] = '-';
 	}
-	str[len--] = 0;
 	while (n > 0)
 	{
 		str[len--] = (n % 10) + '0';

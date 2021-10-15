@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_striteri.c                                      :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: ldominiq <marvin@42lausanne.ch>            +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2021/10/15 16:59:20 by ldominiq          #+#    #+#             */
+/*   Updated: 2021/10/15 16:59:24 by ldominiq         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "libft.h"
 
 void	ft_striteri(char *s, void (*f)(unsigned int, char*))
@@ -6,5 +18,5 @@ void	ft_striteri(char *s, void (*f)(unsigned int, char*))
 
 	i = -1;
 	while (s[++i])
-		s[i] = f(i, &s[i]);
+		f(i, &s[i]);
 }
