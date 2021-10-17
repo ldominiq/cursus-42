@@ -16,9 +16,21 @@ char	*ft_strtrim(char const *s1, char const *set)
 {
 	char	*ptr;
 	int		i;
-	int		j;
+	int		start;
+	int		end;
 
+	start = 0;
+	end = ft_strlen(s1);
 	i = 0;
-	j = 0;
-	ptr = malloc();
+	while (s1[start] && ft_strchr(set, s1[len - start - 1]))
+		start++;
+	while (end > start && ft_strchr(set, s1[end - 1]))
+		end--;
+	ptr = malloc((end - start + 1) * (sizeof(char)));
+	if (ptr == NULL) 
+		return (NULL);
+	while (start < end)
+		ptr[i++] = s1[start++];
+	ptr[i] = 0;
+	return (ptr);
 }
