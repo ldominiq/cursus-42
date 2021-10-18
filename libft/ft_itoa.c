@@ -12,7 +12,7 @@
 
 #include "libft.h"
 
-int	ft_intlen(int n)
+static int	ft_intlen(int n)
 {
 	int	len;
 
@@ -33,11 +33,11 @@ char	*ft_itoa(int n)
 	int		len;
 
 	len = ft_intlen(n);
+	if (n == -2147483648)
+		return (ft_strdup("-2147483648"));
 	str = malloc((len + 1) * sizeof(char));
 	if (str == NULL)
 		return (NULL);
-	if (n == -2147483648)
-		return (ft_strdup("-2147483648"));
 	str[len--] = 0;
 	if (n == 0)
 		str[0] = '0';

@@ -6,7 +6,7 @@
 /*   By: ldominiq <marvin@42lausanne.ch>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/15 16:59:20 by ldominiq          #+#    #+#             */
-/*   Updated: 2021/10/15 16:59:24 by ldominiq         ###   ########.fr       */
+/*   Updated: 2021/10/18 12:01:36 by ldominiq         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,8 @@ char	*ft_strjoin(char const *s1, char const *s2)
 	int		i;
 	int		j;
 
+	if (!s1 || !s2)
+		return (NULL);
 	i = 0;
 	j = 0;
 	ptr = malloc((ft_strlen(s1) + ft_strlen(s2) + 1) * sizeof(char));
