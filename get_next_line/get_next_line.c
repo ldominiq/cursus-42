@@ -24,7 +24,7 @@ char	*get_next_line(int fd)
 	buffer = malloc(BUFFER_SIZE * sizeof(buffer) + 1);
 	if (buffer == NULL)
 		return (NULL);
-	while (ret = read(fd, buffer, BUFFER_SIZE))
+	while ((ret = read(fd, buffer, BUFFER_SIZE)))
 	{
 		printf("%d\n", i);
 		buffer[ret] = 0;
