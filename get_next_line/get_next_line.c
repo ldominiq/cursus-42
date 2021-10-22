@@ -10,27 +10,25 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "get_next_line_utils.c"
-#include <stdio.h>
+#include "get_next_line.h"
 
 char	*get_next_line(int fd)
 {
 	char	*buffer;
 	int		ret;
+	char	*str;
 	int		i;
-	
-	i = 0;
+
 	ret = 0;
 	buffer = malloc(BUFFER_SIZE * sizeof(buffer) + 1);
 	if (buffer == NULL)
 		return (NULL);
-	while ((ret = read(fd, buffer, BUFFER_SIZE)))
+	
+	ret = read(fd, buffer, BUFFER_SIZE);
+	buffer[ret] = 0;
+	while ()
 	{
-		printf("%d\n", i);
-		buffer[ret] = 0;
-		i++;
+
 	}
-	//ft_putstr_fd(buffer, fd);
-	printf("%s\n", buffer);
-	return (buffer);
+	return (str);
 }
