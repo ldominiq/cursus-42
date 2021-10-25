@@ -21,7 +21,9 @@ int	main(void)
 {
 	int		fd;
 	char	*str;
+	int		i;	
 
+	i = 3;
 	fd = open("text.txt", O_RDONLY);
 	if (fd == -1)
 	{
@@ -31,8 +33,11 @@ int	main(void)
 	str = malloc(BUFFER_SIZE * sizeof(str));
 	if (str == NULL)
 		return (1);
-	str = get_next_line(fd);
-	printf("%s", str);
+	while (i--)
+	{
+		str = get_next_line(fd);
+		printf("%s", str);
+	}
 	if (close(fd) == -1)
 	{
 		printf("close() error\n");
