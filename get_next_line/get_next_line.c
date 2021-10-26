@@ -30,6 +30,13 @@ char	*ft_newline_lookup(int idx, char *str, char *buffer, int fd)
 	while (idx)
 	{
 		idx = read(fd, buffer, BUFFER_SIZE);
+		if (idx == -1)
+			return (NULL);
+		if (idx <= 0)
+		{
+			free(str);
+			return (NULL);
+		}
 		buffer[idx] = 0;
 		tmp = ft_strdup(buffer);
 		while (tmp[j])
@@ -38,6 +45,7 @@ char	*ft_newline_lookup(int idx, char *str, char *buffer, int fd)
 			{
 				tmp = ft_substr(tmp, 0, j + 1);
 				str = ft_str_construct(str, tmp);
+				free(tmp);
 				buffer = ft_substr(buffer, j + 1, BUFFER_SIZE - j);
 				return (str);
 			}
@@ -46,26 +54,19 @@ char	*ft_newline_lookup(int idx, char *str, char *buffer, int fd)
 		j = 0;
 		str = ft_str_construct(str, tmp);
 	}
-	free(tmp);
 	return (str);
 }
 
 char	*get_next_line(int fd)
 {
-	static char	*buffer;
+	static char	buffer[BUFFER_SIZE + 1];
 	static char	*str;
-	static int	idx;
+	static int	idx = 1;
 
-	idx = 1;
-	if (fd < 0)
-		return (NULL);
-	if (buffer != NULL)
-		str = ft_strdup(buffer);
 	if (!idx)
 		return (str);
-	buffer = malloc(BUFFER_SIZE * sizeof(buffer) + 1);
-	if (buffer == NULL)
-		return (NULL);
 	str = ft_newline_lookup(idx, str, buffer, fd);
+	if (str == NULL)
+		free(str);
 	return (str);
 }
