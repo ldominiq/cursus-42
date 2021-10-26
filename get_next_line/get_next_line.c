@@ -12,47 +12,61 @@
 
 #include "get_next_line.h"
 
-char	*ft_str_construct(char *str, char *tmp)
+char	*check_str_content(char *str, char *src, char *tmp)
 {
 	if (!str)
-		str = ft_strdup(tmp);
+		str = ft_strdup(src);
 	else
 		str = ft_strjoin(str, tmp);
 	return (str);
 }
 
-char	*ft_newline_lookup(int idx, char *str, char *buffer, int fd)
+char	*set_str_content(size_t index, char *str, char *src)
 {
-	int		j;
 	char	*tmp;
 
-	j = 0;
+	if (index == ft_strlen(src))
+		str = check_str_content(str, src, src);
+	else
+	{
+		tmp = ft_substr(src, 0, index + 1);
+		str = check_str_content(str, src, tmp);
+		free(tmp);
+	}
+	return (str);
+}
+
+char	*get_file_content(char *str, char *buffer, int fd)
+{
+	static size_t	index = 0;
+	static int		idx = 1;
+	int				i;
+
+	i = 0;
+	if (buffer)
+		str = check_str_content(str, buffer, buffer);
 	while (idx)
 	{
 		idx = read(fd, buffer, BUFFER_SIZE);
-		if (idx == -1)
-			return (NULL);
 		if (idx <= 0)
 		{
 			free(str);
 			return (NULL);
 		}
 		buffer[idx] = 0;
-		tmp = ft_strdup(buffer);
-		while (tmp[j])
+		while (buffer[i])
 		{
-			if (tmp[j] == '\n')
+			if (buffer[i] == '\n')
 			{
-				tmp = ft_substr(tmp, 0, j + 1);
-				str = ft_str_construct(str, tmp);
-				free(tmp);
-				buffer = ft_substr(buffer, j + 1, BUFFER_SIZE - j);
+				index = i;
+				str = set_str_content(index, str, buffer);
+				ft_memcpy(buffer, buffer + i + 1, BUFFER_SIZE - i);
 				return (str);
 			}
-			j++;
+			i++;
 		}
-		j = 0;
-		str = ft_str_construct(str, tmp);
+		i = 0;
+		str = check_str_content(str, buffer, buffer);
 	}
 	return (str);
 }
@@ -60,13 +74,14 @@ char	*ft_newline_lookup(int idx, char *str, char *buffer, int fd)
 char	*get_next_line(int fd)
 {
 	static char	buffer[BUFFER_SIZE + 1];
-	static char	*str;
-	static int	idx = 1;
+	char		*str;
 
-	if (!idx)
-		return (str);
-	str = ft_newline_lookup(idx, str, buffer, fd);
-	if (str == NULL)
+	str = NULL;
+	if (fd <= 0)
+	{
 		free(str);
+		return (NULL);
+	}
+	str = get_file_content(str, buffer, fd);
 	return (str);
 }
