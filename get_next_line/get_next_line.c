@@ -12,6 +12,23 @@
 
 #include "get_next_line.h"
 
+void	red(void)
+{
+	printf("\033[1;31m");
+}
+
+void	reset(void)
+{
+	printf("\033[0m");
+}
+
+void	debug(char *str)
+{
+	red();
+	printf("str: '%s' ", str);
+	reset();
+}
+
 char	*check_str_content(char *str, char *src, char *tmp)
 {
 	if (!str)
@@ -43,11 +60,13 @@ char	*get_file_content(char *str, char *buffer, int fd)
 	int				i;
 
 	i = 0;
-	if (buffer)
+	if (buffer[0] != 0 && idx > 0)
 		str = check_str_content(str, buffer, buffer);
 	while (idx)
 	{
 		idx = read(fd, buffer, BUFFER_SIZE);
+		if (idx <= 0 && str)
+			return (str);
 		if (idx <= 0)
 		{
 			free(str);
