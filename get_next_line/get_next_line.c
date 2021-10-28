@@ -12,23 +12,6 @@
 
 #include "get_next_line.h"
 
-void	red(void)
-{
-	printf("\033[1;31m");
-}
-
-void	reset(void)
-{
-	printf("\033[0m");
-}
-
-void	debug(char *str)
-{
-	red();
-	printf("str: '%s' ", str);
-	reset();
-}
-
 char	*check_str_content(char *str, char *src, char *tmp)
 {
 	if (!str)
@@ -47,7 +30,7 @@ char	*set_str_content(size_t index, char *str, char *src)
 	else
 	{
 		tmp = ft_substr(src, 0, index + 1);
-		str = check_str_content(str, src, tmp);
+		str = check_str_content(str, tmp, tmp);
 		free(tmp);
 	}
 	return (str);
@@ -55,13 +38,32 @@ char	*set_str_content(size_t index, char *str, char *src)
 
 char	*get_file_content(char *str, char *buffer, int fd)
 {
-	static size_t	index = 0;
-	static int		idx = 1;
-	int				i;
+	static int	idx = 1;
+	int			i;
+	int			j;
 
 	i = 0;
+	j = 0;
 	if (buffer[0] != 0 && idx > 0)
+	{
+		if (buffer[0] == '\n')
+		{
+			str = set_str_content(0, str, buffer);
+			ft_memcpy(buffer, buffer + 1, BUFFER_SIZE);
+			return (str);
+		}
+		while (buffer[j])
+		{
+			if (buffer[j] == '\n')
+			{
+				str = set_str_content(j, str, buffer);
+				ft_memcpy(buffer, buffer + j + 1, BUFFER_SIZE - j);
+				return (str);
+			}
+			j++;
+		}
 		str = check_str_content(str, buffer, buffer);
+	}
 	while (idx)
 	{
 		idx = read(fd, buffer, BUFFER_SIZE);
@@ -72,13 +74,12 @@ char	*get_file_content(char *str, char *buffer, int fd)
 			free(str);
 			return (NULL);
 		}
-		buffer[idx] = 0;
+		buffer[idx] = '\0';
 		while (buffer[i])
 		{
 			if (buffer[i] == '\n')
 			{
-				index = i;
-				str = set_str_content(index, str, buffer);
+				str = set_str_content(i, str, buffer);
 				ft_memcpy(buffer, buffer + i + 1, BUFFER_SIZE - i);
 				return (str);
 			}
@@ -96,11 +97,6 @@ char	*get_next_line(int fd)
 	char		*str;
 
 	str = NULL;
-	if (fd <= 0)
-	{
-		free(str);
-		return (NULL);
-	}
 	str = get_file_content(str, buffer, fd);
 	return (str);
 }

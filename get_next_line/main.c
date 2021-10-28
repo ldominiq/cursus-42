@@ -23,7 +23,7 @@ int	main(void)
 	char	*str;
 	int		i;	
 
-	i = 5;
+	i = 6;
 	fd = open("text.txt", O_RDONLY);
 	if (fd == -1)
 	{
