@@ -21,10 +21,10 @@
 # include <fcntl.h>
 
 char	*get_next_line(int fd);
-char	*ft_substr(char const *s, unsigned int start, size_t len);
+char	*ft_substr(char *s, unsigned int start, size_t len);
 size_t	ft_strlen(const char *str);
-char	*ft_strdup(const char *s1);
+char	*ft_strdup(char *s1);
 void	*ft_memcpy(void *dst, const void *src, size_t n);
-char	*ft_strjoin(char const *s1, char const *s2);
+char	*ft_strjoin(char *s1, char *s2);
 
 #endif
