@@ -36,14 +36,40 @@ char	*set_str_content(size_t index, char *str, char *src)
 	return (str);
 }
 
+char	*read_file(int *idx, char *buffer, int fd, char *str)
+{
+	int	i;
+
+	i = -1;
+	while (*idx)
+	{
+		*idx = read(fd, buffer, BUFFER_SIZE);
+		if (*idx <= 0 && str)
+			return (str);
+		if (*idx <= 0)
+			return (NULL);
+		buffer[*idx] = '\0';
+		while (buffer[++i])
+		{
+			if (buffer[i] == '\n')
+			{
+				str = set_str_content(i, str, buffer);
+				ft_memcpy(buffer, buffer + i + 1, BUFFER_SIZE - i);
+				return (str);
+			}
+		}
+		i = -1;
+		str = check_str_content(str, buffer, buffer);
+	}
+	return (str);
+}
+
 char	*get_file_content(char *str, char *buffer, int fd)
 {
 	static int	idx = 1;
 	int			i;
-	int			j;
 
 	i = 0;
-	j = 0;
 	if (buffer[0] != 0 && idx > 0)
 	{
 		if (buffer[0] == '\n')
@@ -52,29 +78,6 @@ char	*get_file_content(char *str, char *buffer, int fd)
 			ft_memcpy(buffer, buffer + 1, BUFFER_SIZE);
 			return (str);
 		}
-		while (buffer[j])
-		{
-			if (buffer[j] == '\n')
-			{
-				str = set_str_content(j, str, buffer);
-				ft_memcpy(buffer, buffer + j + 1, BUFFER_SIZE - j);
-				return (str);
-			}
-			j++;
-		}
-		str = check_str_content(str, buffer, buffer);
-	}
-	while (idx)
-	{
-		idx = read(fd, buffer, BUFFER_SIZE);
-		if (idx <= 0 && str)
-			return (str);
-		if (idx <= 0)
-		{
-			free(str);
-			return (NULL);
-		}
-		buffer[idx] = '\0';
 		while (buffer[i])
 		{
 			if (buffer[i] == '\n')
@@ -85,10 +88,9 @@ char	*get_file_content(char *str, char *buffer, int fd)
 			}
 			i++;
 		}
-		i = 0;
 		str = check_str_content(str, buffer, buffer);
 	}
-	return (str);
+	return (read_file(&idx, buffer, fd, str));
 }
 
 char	*get_next_line(int fd)
