@@ -4,6 +4,7 @@
 # include <unistd.h>
 # include <stdio.h>
 # include <stdlib.h>
+# include <limits.h>
 
 int		ft_printf(const char *str, ...);
 void	ft_putnbr_fd(int n, int fd);

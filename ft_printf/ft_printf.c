@@ -13,34 +13,55 @@
 #include "ft_printf.h"
 #include <stdarg.h>
 
-int	ft_process_str(char *str, va_list list, int idx, int count)
+int	ft_process_str(const char *str, va_list args)
 {
-	int		d;
+	int	d;
+	int	count;
+	int	i;
 	//char	c;
 	//char	*s;
-
-	if (str[idx] == '%' && str[idx + 1] == 'd')
+	count = 0;
+	i = 0; 
+	while (str[i])
 	{
-		d = va_arg(list, int);
-		ft_putnbr_fd(d, 1);
+		if (str[i] == '%' && str[i + 1] == '%')
+		{
+			ft_putchar_fd('%', 1);
+			i++;
+		}
+		else if (str[i] == '%' && str[i + 1] == 'c')
+		{
+			d = va_arg(args, int);
+			ft_putchar_fd(d, 1);
+			i++;
+		}
+		else if (str[i] == '%' && str[i + 1] == 's')
+		{
+			d = va_arg(args, int);
+			ft_putstr_fd((char *)d, 1);
+			i++;
+		}
+		else if (str[i] == '%' && (str[i + 1] == 'd' || str[i + 1] == 'i'))
+		{
+			d = va_arg(args, int);
+			ft_putnbr_fd(d, 1);
+			i++;
+		}
+		else
+			ft_putchar_fd(str[i], 1);
+		i++;
 	}
 	return (count);
 }
 
 int	ft_printf(const char *str, ...)
 {
-	va_list	list;
+	va_list	args;
 	int		count;
-	int		i;
 
 	count = 0;
-	i = 0;
-	va_start(list, str);
-	while (str[i])
-	{
-		count = ft_process_str((char *)str, list, i, count);
-		i++;
-	}
-	va_end(list);
+	va_start(args, str);
+	count += ft_process_str(str, args);
+	va_end(args);
 	return (count);
 }
