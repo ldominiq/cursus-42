@@ -47,6 +47,27 @@ int	ft_process_str(const char *str, va_list args)
 			ft_putnbr_fd(d, 1);
 			i++;
 		}
+		else if (str[i] == '%' && str[i + 1] == 'u')
+		{
+			d = va_arg(args, unsigned int);
+			ft_putunbr_fd(d, 1);
+			i++;
+		}
+		else if (str[i] == '%' && (str[i + 1] == 'x' || str[i + 1] == 'X'))
+		{
+			d = va_arg(args, unsigned int);
+			if (str[i + 1] == 'x')
+				ft_puthex_fd(d, 87, 1);
+			else
+				ft_puthex_fd(d, 55, 1);
+			i++;
+		}
+		else if (str[i] == '%' && str[i + 1] == 'p')
+		{
+			d = va_arg(args, unsigned int);
+			ft_putptr_fd(d, 1);
+			i++;
+		}
 		else
 			ft_putchar_fd(str[i], 1);
 		i++;

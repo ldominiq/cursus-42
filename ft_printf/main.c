@@ -4,11 +4,11 @@ int	main(void)
 {
 	//int	i;
 	//int	j;
-	char *str = "YEE";
+	char *str = "YEETTT";
 
-	printf("printf:: i: %i | d: %d | s: %s | c: %c | %%: %% | u: %u | p: %p | x: %x | X: %X\n", 42, 42, "YEET", 'Z', 5, str, 42, 42);
-	//printf("%d\n", i);
-	ft_printf("ft_printf:: i: %i | d: %d | s: %s | c: %c | %%: %% | u: %u | p: %p | x: %x | X: %X\n", 42, 42, "YEET", 'Z', 5, str, 42, 42);
-	//ft_printf("%d\n", j);
+	printf("printf:: %%: %% | i: %i | d: %d | s: %s | c: %c | u: %u | x: %x | X: %X | p: %p  \n", 42, 42, "YEET", 'Z', UINT_MAX, UINT_MAX, 42, str);
+	//printf("%x\n", 50);
+	ft_printf("ft_printf:: %%: %% | i: %i | d: %d | s: %s | c: %c | u: %u | x: %x | X: %X | p: %p  \n", 42, 42, "YEET", 'Z', UINT_MAX, UINT_MAX, 42, str);
+	//ft_printf("%x\n", 50);
 	return (0);
 }
