@@ -1,4 +1,4 @@
-SRCS 		= ft_printf.c main.c ft_utils.c
+SRCS 		= ft_printf.c main.c ft_utils.c ft_utils2.c
 
 OBJS 		= ${SRCS:.c=.o}
 
@@ -12,7 +12,7 @@ CFLAGS 		= -Wall -Wextra -Werror
 
 all: 		${NAME}
 
-(OBJS):		%.o: %.c
+.c.o:
 			gcc -c $(CFLAGS) $< -o $@
 
 ${NAME}: 	${OBJS}

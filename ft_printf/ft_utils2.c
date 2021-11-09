@@ -10,22 +10,49 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FT_PRINTF_H
-# define FT_PRINTF_H
+#include "ft_printf.h"
 
-# include <unistd.h>
-# include <stdio.h>
-# include <stdlib.h>
-# include <limits.h>
+int	ft_putptr_fd(unsigned int n, int fd, int *idx)
+{
+	unsigned int	tmp;
+	int				i;
+	char			*hex;
+	int				count;
 
-int		ft_printf(const char *str, ...);
-int		ft_putnbr_fd(int n, int fd, int *idx);
-int		ft_putchar_fd(char c, int fd, int *i);
-int		ft_putstr_fd(char *s, int fd, int *idx);
-int		ft_putunbr_fd(unsigned int n, int fd, int *idx);
-int		ft_puthex_fd(unsigned int n, int upper, int fd, int *idx);
-void	*ft_calloc(size_t count, size_t size);
-int		ft_putptr_fd(unsigned int n, int fd, int *idx);
-int		ft_handler(va_list args, char c, int *i);
+	i = 8;
+	count = 0;
+	hex = ft_calloc(sizeof(char), 9);
+	while (n != 0)
+	{
+		tmp = n % 16;
+		if (tmp > 9)
+			hex[i] = (char)(tmp + 87);
+		else
+			hex[i] = (char)(tmp + 48);
+		n = n / 16;
+		i--;
+	}
+	i = -1;
+	//TODO: fix nothing printing
+	while (hex[++i] != 0)
+		count += ft_putchar_fd(hex[i], fd, NULL);
+	*idx += 1;
+	free(hex);
+	return (3 + count);
+}
 
-#endif
+int	ft_putstr_fd(char *s, int fd, int *idx)
+{
+	int	i;
+	int	count;
+
+	count = 0;
+	if (s)
+	{
+		i = -1;
+		while (s[++i])
+			count += ft_putchar_fd(s[i], fd, NULL);
+	}
+	*idx += 1;
+	return (count);
+}
