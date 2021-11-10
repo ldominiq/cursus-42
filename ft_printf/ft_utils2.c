@@ -12,17 +12,17 @@
 
 #include "ft_printf.h"
 
-int	ft_putptr_fd(unsigned int n, int fd, int *idx)
+int	ft_putptr_fd(unsigned long n, int fd, int *idx)
 {
-	unsigned int	tmp;
+	unsigned long	tmp;
 	int				i;
 	char			*hex;
 	int				count;
 
-	i = 8;
+	i = 0;
 	count = 0;
-	hex = ft_calloc(sizeof(char), 9);
-	while (n != 0)
+	hex = malloc(sizeof(char) * 12);
+	while (n)
 	{
 		tmp = n % 16;
 		if (tmp > 9)
@@ -30,15 +30,14 @@ int	ft_putptr_fd(unsigned int n, int fd, int *idx)
 		else
 			hex[i] = (char)(tmp + 48);
 		n = n / 16;
-		i--;
+		i++;
 	}
-	i = -1;
-	//TODO: fix nothing printing
-	while (hex[++i] != 0)
+	count += ft_putstr_fd("0x", fd, NULL);
+	while (--i >= 0)
 		count += ft_putchar_fd(hex[i], fd, NULL);
 	*idx += 1;
 	free(hex);
-	return (3 + count);
+	return (count);
 }
 
 int	ft_putstr_fd(char *s, int fd, int *idx)
@@ -53,6 +52,7 @@ int	ft_putstr_fd(char *s, int fd, int *idx)
 		while (s[++i])
 			count += ft_putchar_fd(s[i], fd, NULL);
 	}
-	*idx += 1;
+	if (idx != NULL)
+		*idx += 1;
 	return (count);
 }

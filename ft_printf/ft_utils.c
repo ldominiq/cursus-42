@@ -26,7 +26,7 @@ int	ft_putnbr_fd(int n, int fd, int *idx)
 
 	count = 0;
 	if (n == -2147483648)
-		ft_putstr_fd("-2147483648", fd, NULL);
+		count = ft_putstr_fd("-2147483648", fd, NULL);
 	else if (n < 0)
 	{
 		count += ft_putchar_fd('-', fd, NULL);
@@ -34,7 +34,7 @@ int	ft_putnbr_fd(int n, int fd, int *idx)
 	}
 	else if (n >= 10)
 	{
-		ft_putnbr_fd(n / 10, fd, NULL);
+		count += ft_putnbr_fd(n / 10, fd, NULL);
 		count += ft_putchar_fd(n % 10 + '0', fd, NULL);
 	}
 	else

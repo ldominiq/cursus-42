@@ -25,7 +25,7 @@ int		ft_putstr_fd(char *s, int fd, int *idx);
 int		ft_putunbr_fd(unsigned int n, int fd, int *idx);
 int		ft_puthex_fd(unsigned int n, int upper, int fd, int *idx);
 void	*ft_calloc(size_t count, size_t size);
-int		ft_putptr_fd(unsigned int n, int fd, int *idx);
+int		ft_putptr_fd(unsigned long n, int fd, int *idx);
 int		ft_handler(va_list args, char c, int *i);
 
 #endif
