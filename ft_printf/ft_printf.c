@@ -24,7 +24,7 @@ int	ft_countput(char *s, int d, unsigned long u, char c, int *i)
 	else if (c == 's')
 		count = ft_putstr_fd(s, 1, i);
 	else if (c == 'd' || c == 'i')
-		count = ft_putnbr_fd(u, 1, i);
+		count = ft_putnbr_fd(d, 1, i);
 	else if (c == 'u')
 		count = ft_putunbr_fd(u, 1, i);
 	else if (c == 'x')

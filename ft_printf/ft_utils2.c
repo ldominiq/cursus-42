@@ -22,6 +22,9 @@ int	ft_putptr_fd(unsigned long n, int fd, int *idx)
 	i = 0;
 	count = 0;
 	hex = malloc(sizeof(char) * 12);
+	count += ft_putstr_fd("0x", fd, NULL);
+	if (!n)
+		count += ft_putchar_fd('0', fd, NULL);
 	while (n)
 	{
 		tmp = n % 16;
@@ -32,7 +35,6 @@ int	ft_putptr_fd(unsigned long n, int fd, int *idx)
 		n = n / 16;
 		i++;
 	}
-	count += ft_putstr_fd("0x", fd, NULL);
 	while (--i >= 0)
 		count += ft_putchar_fd(hex[i], fd, NULL);
 	*idx += 1;
@@ -52,6 +54,8 @@ int	ft_putstr_fd(char *s, int fd, int *idx)
 		while (s[++i])
 			count += ft_putchar_fd(s[i], fd, NULL);
 	}
+	else if (s == NULL)
+		count = ft_putstr_fd("(null)", fd, NULL);
 	if (idx != NULL)
 		*idx += 1;
 	return (count);
