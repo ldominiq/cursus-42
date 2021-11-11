@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_utils.c                                         :+:      :+:    :+:   */
+/*   ft_puthex.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ldominiq <marvin@42lausanne.ch>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -12,54 +12,42 @@
 
 #include "ft_printf.h"
 
-t_print	ft_init(void)
+char	*ft_setuphex(unsigned int n, char *hex, int upper, int *i)
 {
-	t_print	vars;
+	unsigned int	tmp;
 
-	vars.d = 0;
-	vars.u = 0;
-	vars.p = 0;
-	vars.s = NULL;
-	return (vars);
-}
-
-int	ft_putchar_fd(char c, int fd, int *i)
-{
-	write(fd, &c, 1);
-	if (i != NULL)
-		*i += 1;
-	return (1);
-}
-
-void	*ft_calloc(size_t count, size_t size)
-{
-	char	*ptr;
-	size_t	i;
-
-	i = -1;
-	ptr = malloc(size * count);
-	if (ptr == NULL)
-		return (NULL);
-	while (++i < count * size)
-		ptr[i] = 0;
-	return (ptr);
-}
-
-int	ft_putstr_fd(char *s, int fd, int *idx)
-{
-	int	i;
-	int	count;
-
-	count = 0;
-	if (s)
+	while (n != 0)
 	{
-		i = -1;
-		while (s[++i])
-			count += ft_putchar_fd(s[i], fd, NULL);
+		tmp = n % 16;
+		if (tmp > 9)
+			hex[*i] = (char)(tmp + upper);
+		else
+			hex[*i] = (char)(tmp + 48);
+		n = n / 16;
+		*i += 1;
 	}
-	else if (s == NULL)
-		count = ft_putstr_fd("(null)", fd, NULL);
-	if (idx != NULL)
-		*idx += 1;
+	hex[*i] = 0;
+	return (hex);
+}
+
+int	ft_puthex_fd(unsigned int n, int upper, int fd, int *idx)
+{
+	int		i;
+	char	*hex;
+	int		count;
+
+	i = 0;
+	count = 0;
+	if (n != 0)
+	{
+		hex = ft_calloc(sizeof(char), 9);
+		hex = ft_setuphex(n, hex, upper, &i);
+		while (--i >= 0)
+			count += ft_putchar_fd(hex[i], fd, NULL);
+		free(hex);
+	}
+	else
+		count += ft_putchar_fd('0', fd, NULL);
+	*idx += 1;
 	return (count);
 }

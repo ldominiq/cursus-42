@@ -13,50 +13,44 @@
 #include "ft_printf.h"
 #include <stdarg.h>
 
-int	ft_countput(char *s, int d, unsigned long u, char c, int *i)
+int	ft_countput(t_print vars, char c, int *i)
 {
 	int	count;
 
 	count = 0;
 	if (c == 'c')
-		count = ft_putchar_fd(d, 1, i);
-	//TODO: fix last 's' test NULL param
+		count = ft_putchar_fd(vars.d, 1, i);
 	else if (c == 's')
-		count = ft_putstr_fd(s, 1, i);
+		count = ft_putstr_fd(vars.s, 1, i);
 	else if (c == 'd' || c == 'i')
-		count = ft_putnbr_fd(d, 1, i);
+		count = ft_putnbr_fd(vars.d, 1, i);
 	else if (c == 'u')
-		count = ft_putunbr_fd(u, 1, i);
+		count = ft_putunbr_fd(vars.u, 1, i);
 	else if (c == 'x')
-		count = ft_puthex_fd(u, 87, 1, i);
+		count = ft_puthex_fd(vars.u, 87, 1, i);
 	else if (c == 'X')
-		count = ft_puthex_fd(u, 55, 1, i);
+		count = ft_puthex_fd(vars.u, 55, 1, i);
 	else if (c == 'p')
-		count = ft_putptr_fd(u, 1, i);
+		count = ft_putptr_fd(vars.u, 1, i);
 	return (count);
 }
 
 int	ft_handler(va_list args, char c, int *i)
 {
-	int				d;
-	unsigned int	u;
-	unsigned long	p;
 	int				count;
-	char			*s;
+	t_print			vars;
 
 	count = 0;
+	vars = ft_init();
 	if (c == 'c' || c == 'd' || c == 'i')
-		d = va_arg(args, int);
+		vars.d = va_arg(args, int);
 	else if (c == 'u' || c == 'x' || c == 'X')
-		u = va_arg(args, unsigned int);
-	else if ( c == 'p')
-		p = va_arg(args, unsigned long);
+		vars.u = va_arg(args, unsigned int);
+	else if (c == 'p')
+		vars.p = va_arg(args, unsigned long);
 	else if (c == 's')
-		s = va_arg(args, char *);
-	if (c == 'p')
-		count = ft_countput(s, d, p, c, i);
-	else
-		count = ft_countput(s, d, u, c, i);
+		vars.s = va_arg(args, char *);
+	count = ft_countput(vars, c, i);
 	return (count);
 }
 
