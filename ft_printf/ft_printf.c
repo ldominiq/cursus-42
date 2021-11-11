@@ -31,7 +31,7 @@ int	ft_countput(t_print vars, char c, int *i)
 	else if (c == 'X')
 		count = ft_puthex_fd(vars.u, 55, 1, i);
 	else if (c == 'p')
-		count = ft_putptr_fd(vars.u, 1, i);
+		count = ft_putptr_fd(vars.p, 1, i);
 	return (count);
 }
 
