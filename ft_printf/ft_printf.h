@@ -18,14 +18,6 @@
 # include <stdlib.h>
 # include <limits.h>
 
-typedef struct s_print
-{
-	int				d;
-	unsigned int	u;
-	unsigned long	p;
-	char			*s;
-}	t_print;
-
 int		ft_printf(const char *str, ...);
 int		ft_putnbr_fd(int n, int fd, int *idx);
 int		ft_putchar_fd(char c, int fd, int *i);
@@ -37,6 +29,5 @@ int		ft_putptr_fd(unsigned long n, int fd, int *idx);
 int		ft_handler(va_list args, char c, int *i);
 char	*ft_setuphex(unsigned int n, char *hex, int upper, int *i);
 char	*ft_setupptr(unsigned long n, char *hex, int *i);
-t_print	ft_init(void);
 
 #endif

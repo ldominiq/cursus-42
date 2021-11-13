@@ -12,17 +12,6 @@
 
 #include "ft_printf.h"
 
-t_print	ft_init(void)
-{
-	t_print	vars;
-
-	vars.d = 0;
-	vars.u = 0;
-	vars.p = 0;
-	vars.s = NULL;
-	return (vars);
-}
-
 int	ft_putchar_fd(char c, int fd, int *i)
 {
 	write(fd, &c, 1);
