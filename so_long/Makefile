@@ -1,31 +1,41 @@
-SRCS 		= 
+SRCS 		= main.c
 
 OBJS 		= ${SRCS:.c=.o}
 
-NAME 		= mlx.a
+NAME 		= so_long
 
 AR 			= ar rcs
+
+GCC			= gcc
 
 RM 			= rm -f
 
 CFLAGS 		= -Wall -Wextra -Werror
 
-all: 		${NAME}
+MLX_PATH	= 	./mlx/
 
-%.o: %.c
-			$(CC) -Wall -Wextra -Werror -Imlx -c $< -o $@
+LBFT_PATH	= 	./libft/
 
+FRAMLIBS	= 	-L ${LBFT_PATH} -lft -L ${MLX_PATH} -lmlx -framework OpenGL -framework AppKit
+
+all: 		$(NAME)
+			
 .c.o:
-			gcc -c $(CFLAGS) $< -o $@
+			$(GCC) $(CFLAGS) -Imlx -c $< -o $@
 
-$(NAME): 	$(OBJ)
-			$(CC) $(OBJ) -Lmlx -lmlx -framework OpenGL -framework AppKit -o $(NAME)
+$(NAME): 	$(OBJS)
+			@$(MAKE) -C $(LBFT_PATH)
+			@$(MAKE) -C $(MLX_PATH)
+			$(GCC) $(OBJS) $(CFLAGS) -I ${MLX_PATH} -I ${LBFT_PATH} -o $(NAME) $(FRAMLIBS)
 
 clean:
 			${RM} ${OBJS}
+			@$(MAKE) -C $(LBFT_PATH) clean
+			@$(MAKE) -C $(MLX_PATH) clean
 
 fclean: 	clean
 			${RM} ${NAME}
+			@$(MAKE) -C $(LBFT_PATH) fclean
 
 re:			fclean all
 
