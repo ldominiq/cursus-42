@@ -13,16 +13,23 @@ int	open_file(char *file_name)
 	return (fd);
 }
 
-int	read_map(int fd)
+void	read_map(int fd, char **map, void *mlx)
 {
-	char	*str;
+	char	*tmp;
+	int		height;
+	int		width;
 
-	str = "";
-	while (str != NULL)
+	tmp = "";
+	height = 0;
+	width = 0;
+	while (tmp != NULL)
 	{
-		str = get_next_line(fd);
-		if (str != NULL)
-			printf("%s", str);
+		tmp = get_next_line(fd);
+		if (tmp != NULL)
+		{
+			printf("%s", tmp);
+			map = ft_strjoin(map, tmp);
+		}
 	}
-	return (0);
+	ft_new_window();
 }

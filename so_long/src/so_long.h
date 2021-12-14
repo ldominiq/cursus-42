@@ -19,13 +19,15 @@ typedef struct	s_vector
 }				t_vector;
 
 /* A pointer to the window and its size */
-typedef struct	s_window {
+typedef struct	s_window
+{
 	void		*reference;
 	t_vector	size;
 }				t_window;
 
 /* all info needed for an image */
-typedef struct	s_image {
+typedef struct	s_image
+{
 	void		*reference;
 	t_vector	size;
 	char		*pixels;
@@ -34,14 +36,22 @@ typedef struct	s_image {
 	int			endian;
 }				t_image;
 
-typedef struct s_sprite {
+typedef struct	s_map
+{
+	char	*map;
+}				t_map;
+
+typedef struct s_sprite
+{
     t_image		sprite;
 	t_vector	sprite_position;
 }               t_sprite;
 
-typedef struct	s_program {
+typedef struct	s_program
+{
 	void		*mlx;
 	t_window	window;
+	t_map		map;
 	t_sprite    ground_sprite;
 	t_sprite    player_sprite;
 }				t_program;
@@ -53,6 +63,7 @@ int	        ft_input(int key, void *param);
 int	        ft_update (void *param);
 void        ft_create_ground(t_program *program);
 int			open_file(char *file_name);
-int			read_map(int fd);
+void		read_map(int fd);
+int			ft_errors(int argc);
 
 #endif

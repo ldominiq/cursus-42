@@ -5,7 +5,8 @@ SRCS 		= 	main.c \
 				get_map.c \
 				map_handler.c \
 				get_next_line.c \
-				get_next_line_utils.c
+				get_next_line_utils.c \
+				error_handler.c
 
 SRC			= 	$(addprefix $(DIR), $(SRCS))
 
