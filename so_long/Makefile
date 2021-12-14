@@ -1,16 +1,27 @@
-SRCS 		= main.c
+SRCS 		= 	main.c \
+				window.c \
+				hooks.c \
+				image.c \
+				get_map.c \
+				map_handler.c \
+				get_next_line.c \
+				get_next_line_utils.c
 
-OBJS 		= ${SRCS:.c=.o}
+SRC			= 	$(addprefix $(DIR), $(SRCS))
 
-NAME 		= so_long
+DIR			= 	src/
 
-AR 			= ar rcs
+OBJS 		= 	${SRC:.c=.o}
 
-GCC			= gcc
+NAME 		= 	so_long
 
-RM 			= rm -f
+AR 			= 	ar rcs
 
-CFLAGS 		= -Wall -Wextra -Werror
+GCC			= 	gcc
+
+RM 			= 	rm -f
+
+CFLAGS 		= 	-Wall -Wextra -Werror
 
 MLX_PATH	= 	./mlx/
 
