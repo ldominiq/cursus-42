@@ -1,36 +1,32 @@
 #include "so_long.h"
 
-/* Returns an image with the sprite found in <path> */
-t_image ft_new_sprite(void *mlx, char *path)
+void	ft_init_sprite(char *path, int x, int y, t_program *program)
 {
-	t_image img;
-	
-	/* mlx function that creates and image that contains the xmp file found in the given path.
-	* It also saves the width and height of the image in the pointers passed as parameters */
-	img.reference = mlx_xpm_file_to_image(mlx, path, &img.size.x, &img.size.y);
-	img.pixels  = mlx_get_data_addr(img.reference, &img.bits_per_pixel, &img.line_size, &img.endian);
-	return (img);
+	int 	width;
+	int 	height;
+	char 	*img;
+
+	img = mlx_xpm_file_to_image(program->mlx, path, &width, &height);
+	mlx_put_image_to_window(program->mlx, program->window.reference, img, x, y);
 }
 
-void ft_create_ground(t_program *program)
+void	ft_new_sprite(t_program *program, char *tile_path, int type)
 {
-    int			i;
-	int			j;
+	int i;
+	int	x;
+	int y;
 
-	i = 0;
-	j = 0;
-    while (i < 50)
+	x = -1;
+	y = -1;
+	i = -1;
+	while (program->window.size.y > ++y)
 	{
-		while (j < 50)
+		while ((program->map->map)[++i] && program->window.size.x > ++x)
 		{
-			mlx_put_image_to_window(program->mlx, program->window.reference,
-				program->ground_sprite.sprite.reference, program->ground_sprite.sprite_position.x, program->ground_sprite.sprite_position.y);
-			program->ground_sprite.sprite_position.x += program->ground_sprite.sprite.size.x;
-			j++;
+			printf("OK--\n");
+			if ((program->map->map)[i] == type || type == 'G')
+				ft_init_sprite(tile_path, x * SPRITE_SIZE, y * SPRITE_SIZE, program);
 		}
-		i++;
-		j = 0;
-		program->ground_sprite.sprite_position.y += program->ground_sprite.sprite.size.y;
-		program->ground_sprite.sprite_position.x = 0;
+		x = -1;
 	}
 }

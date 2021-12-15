@@ -6,18 +6,27 @@ int ft_close()
 	exit(0);
 }
 
-t_window	ft_new_window(void *mlx, int width, int height, char *name)
+int	ft_new_window(int width, int height, char **map)
 {
-	t_window    window;
+	t_program   *program;
 
-	/* This mlx function creates a returns a pointer
-	to a new window with a given size and name */
-	window.size.x = width * 32;
-	window.size.y = height * 32;
-	window.reference = mlx_new_window(mlx, window.size.x, window.size.y, name);
-
+    program = malloc(sizeof(t_program));
+    if (!program)
+        return (0);
+    ft_init(program);
+	program->window.size.x = width;
+	program->window.size.y = height;
+    program->map->map = *map;
+	program->mlx = mlx_init();
+	program->window.reference = mlx_new_window(program->mlx,
+                                               program->window.size.x * SPRITE_SIZE,
+                                               program->window.size.y * SPRITE_SIZE, "Yeet");
+    ft_init_map(program);
+	printf("OK\n");
 	// Now we 'hook' the function ft_close() to the closing window event
-	mlx_hook(window.reference, 17, 0, ft_close, 0);
-
-	return (window);
+	mlx_hook(program->window.reference, 17, 0, ft_close, 0);
+    mlx_key_hook(program->window.reference, *ft_input, &program);
+    //mlx_loop_hook(program.mlx, *ft_update, &program);
+    mlx_loop(program->mlx);
+	return (0);
 }

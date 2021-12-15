@@ -7,6 +7,8 @@
 # include <unistd.h>
 # include <fcntl.h>
 
+# define SPRITE_SIZE 64
+
 # ifndef ANIMATION_FRAMES
 #  define ANIMATION_FRAMES 10
 # endif
@@ -14,8 +16,8 @@
 /* vector with an x and y */
 typedef struct	s_vector
 {
-	int	x;
-	int	y;
+	int	        x;
+	int	        y;
 }				t_vector;
 
 /* A pointer to the window and its size */
@@ -36,9 +38,14 @@ typedef struct	s_image
 	int			endian;
 }				t_image;
 
+typedef struct  s_player
+{
+    t_vector    *player_pos;
+}               t_player;
+
 typedef struct	s_map
 {
-	char	*map;
+	char	    *map;
 }				t_map;
 
 typedef struct s_sprite
@@ -51,19 +58,22 @@ typedef struct	s_program
 {
 	void		*mlx;
 	t_window	window;
-	t_map		map;
-	t_sprite    ground_sprite;
-	t_sprite    player_sprite;
+	t_map		*map;
+    t_player    *player;
 }				t_program;
 
-t_window	ft_new_window(void *mlx, int width, int height, char *name);
-t_image     ft_new_sprite(void *mlx, char *path);
+int	        ft_new_window(int width, int height, char **map);
 int         ft_close();
-int	        ft_input(int key, void *param);
-int	        ft_update (void *param);
-void        ft_create_ground(t_program *program);
+//int	        ft_input(int key, void *param);
+int	        ft_input(int key);
+void        ft_init_map(t_program *program);
 int			open_file(char *file_name);
-void		read_map(int fd);
+void	    read_map(int fd, char **map);
 int			ft_errors(int argc);
+void        ft_init(t_program *program);
+void		ft_new_sprite(t_program *program, char *sprite_path, int type);
+void		ft_init_sprite(char *path, int x, int y, t_program *program);
+void		ft_add_player(t_program *program);
+int			ft_strchr_pos(const char *s, int c);
 
 #endif
