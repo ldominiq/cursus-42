@@ -10,7 +10,6 @@ int	main(int argc, char *argv[])
 	if (!map)
 		map = ft_strdup("");
 	fd = open_file(argv[1]);
-	printf("fd: %d\n", fd);
 	read_map(fd, &map);
     return (0);
 }

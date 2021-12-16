@@ -16,7 +16,7 @@ void 	ft_init_player(t_program *program)
 void	ft_init_map(t_program *program)
 {
 	ft_new_sprite(program, "./img/grass.xpm", 'G');
-	printf("OK-\n");
-	ft_new_sprite(program, "./img/block.xpm", '1');
+	ft_new_sprite(program, "./img/rock.xpm", '1');
+	ft_new_sprite(program, "./img/pokeball.xpm", 'C');
 	ft_init_player(program);
 }

@@ -23,7 +23,6 @@ void	ft_new_sprite(t_program *program, char *tile_path, int type)
 	{
 		while ((program->map->map)[++i] && program->window.size.x > ++x)
 		{
-			printf("OK--\n");
 			if ((program->map->map)[i] == type || type == 'G')
 				ft_init_sprite(tile_path, x * SPRITE_SIZE, y * SPRITE_SIZE, program);
 		}

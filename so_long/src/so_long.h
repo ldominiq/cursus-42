@@ -64,8 +64,7 @@ typedef struct	s_program
 
 int	        ft_new_window(int width, int height, char **map);
 int         ft_close();
-//int	        ft_input(int key, void *param);
-int	        ft_input(int key);
+int			ft_input(int key, t_program *program);
 void        ft_init_map(t_program *program);
 int			open_file(char *file_name);
 void	    read_map(int fd, char **map);
@@ -75,5 +74,9 @@ void		ft_new_sprite(t_program *program, char *sprite_path, int type);
 void		ft_init_sprite(char *path, int x, int y, t_program *program);
 void		ft_add_player(t_program *program);
 int			ft_strchr_pos(const char *s, int c);
+void		ft_move_right(t_program *program);
+void		ft_move_left(t_program *program);
+void		ft_move_up(t_program *program);
+void		ft_move_down(t_program *program);
 
 #endif

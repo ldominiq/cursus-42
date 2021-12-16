@@ -22,17 +22,12 @@ void	read_map(int fd, char **map)
 	height = 0;
 	width = 0;
 	tmp = get_next_line(fd);
-	printf("%s", tmp);
 	width = ft_strchr_pos(tmp, '\n');
 	while (tmp != NULL)
 	{
 		height++;
 		*map = ft_strjoin(*map, tmp);
-		printf("map: %s\n", *map);
 		tmp = get_next_line(fd);
-        printf("%s", tmp);
 	}
-	printf("W: %d\n", width);
-	printf("H: %d\n", height);
 	ft_new_window(width, height, map);
 }

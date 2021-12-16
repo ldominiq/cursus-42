@@ -8,7 +8,8 @@ SRCS 		= 	main.c \
 				get_next_line_utils.c \
 				error_handler.c \
 				init.c \
-				player_handler.c
+				player_handler.c \
+				player_movement.c
 
 SRC			= 	$(addprefix $(DIR), $(SRCS))
 
