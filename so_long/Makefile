@@ -9,7 +9,8 @@ SRCS 		= 	main.c \
 				error_handler.c \
 				init.c \
 				player_handler.c \
-				player_movement.c
+				player_movement.c \
+				utils.c
 
 SRC			= 	$(addprefix $(DIR), $(SRCS))
 
@@ -41,7 +42,7 @@ all: 		$(NAME)
 $(NAME): 	$(OBJS)
 			@$(MAKE) -C $(LBFT_PATH)
 			@$(MAKE) -C $(MLX_PATH)
-			$(GCC) $(OBJS) $(CFLAGS) -I ${MLX_PATH} -I ${LBFT_PATH} -o $(NAME) $(FRAMLIBS)
+			$(GCC) $(OBJS) $(CFLAGS) -fsanitize=address -I ${MLX_PATH} -I ${LBFT_PATH} -o $(NAME) $(FRAMLIBS)
 
 clean:
 			${RM} ${OBJS}

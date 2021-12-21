@@ -13,6 +13,16 @@
 #  define ANIMATION_FRAMES 10
 # endif
 
+# define KEY_ESC 53
+# define KEY_W 13
+# define KEY_A 0
+# define KEY_S 1
+# define KEY_D 2
+# define KEY_UP 126
+# define KEY_RIGHT 124
+# define KEY_DOWN 125
+# define KEY_LEFT 123
+
 /* vector with an x and y */
 typedef struct	s_vector
 {
@@ -78,5 +88,6 @@ void		ft_move_right(t_program *program);
 void		ft_move_left(t_program *program);
 void		ft_move_up(t_program *program);
 void		ft_move_down(t_program *program);
+int			ft_search_key(int key);
 
 #endif

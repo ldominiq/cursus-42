@@ -5,20 +5,21 @@
 * and a void pointer in case you need to recibe someting */
 int	ft_input(int key, t_program *program)
 {
+	if (!ft_search_key(key))
+		return (0);
 	ft_new_sprite(program, "./img/grass.xpm", '0');
 	ft_init_sprite("./img/grass.xpm",
 		program->player->player_pos->x, program->player->player_pos->y, program);
-	// move in a direction based on the key
-	if (key == 124 || key == 2)
+	if (key == KEY_RIGHT || key == KEY_D)
 		ft_move_right(program);
-	else if (key == 123 || key == 0)
+	else if (key == KEY_LEFT || key == KEY_A)
 		ft_move_left(program);
-	else if (key == 125 || key == 1)
+	else if (key == KEY_DOWN || key == KEY_S)
 		ft_move_down(program);
-	else if (key == 126 || key == 13)
+	else if (key == KEY_UP || key == KEY_W)
 		ft_move_up(program);
-	else if (key == 53)
+	else if (key == KEY_ESC)
 		ft_close();
-	printf("Key pressed -> %d\n", key);
+	//printf("Key pressed -> %d\n", key);
 	return (0);
 }
