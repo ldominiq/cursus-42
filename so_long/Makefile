@@ -10,7 +10,8 @@ SRCS 		= 	main.c \
 				init.c \
 				player_handler.c \
 				player_movement.c \
-				utils.c
+				utils.c \
+				collectibles.c
 
 SRC			= 	$(addprefix $(DIR), $(SRCS))
 

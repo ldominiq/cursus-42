@@ -51,11 +51,19 @@ typedef struct	s_image
 typedef struct  s_player
 {
     t_vector    *player_pos;
+	int			steps;
+	int			balls;
 }               t_player;
+
+typedef struct	s_balls
+{
+	int			amount;
+}				t_balls;
 
 typedef struct	s_map
 {
 	char	    *map;
+	t_balls		*balls;
 }				t_map;
 
 typedef struct s_sprite
@@ -89,5 +97,7 @@ void		ft_move_left(t_program *program);
 void		ft_move_up(t_program *program);
 void		ft_move_down(t_program *program);
 int			ft_search_key(int key);
+void		count_balls(t_program *program);
+void		ft_collect(t_program *program, int ball_pos);
 
 #endif

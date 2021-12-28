@@ -20,6 +20,5 @@ int	ft_input(int key, t_program *program)
 		ft_move_up(program);
 	else if (key == KEY_ESC)
 		ft_close();
-	//printf("Key pressed -> %d\n", key);
 	return (0);
 }

@@ -3,8 +3,11 @@
 void	ft_init(t_program *program)
 {
 	program->map = malloc(sizeof(t_map));
+	program->map->balls = malloc(sizeof(t_balls));
 	program->player = malloc(sizeof(t_player));
 	program->player->player_pos = malloc(sizeof(t_vector));
+	program->player->steps = 0;
+	program->player->balls = 0;
 }
 
 void 	ft_init_player(t_program *program)
@@ -19,4 +22,5 @@ void	ft_init_map(t_program *program)
 	ft_new_sprite(program, "./img/rock.xpm", '1');
 	ft_new_sprite(program, "./img/pokeball.xpm", 'C');
 	ft_init_player(program);
+	count_balls(program);
 }
