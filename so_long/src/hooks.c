@@ -29,6 +29,6 @@ int	ft_input(int key, t_program *program)
 	else if (key == KEY_UP || key == KEY_W)
 		ft_move_up(program);
 	else if (key == KEY_ESC)
-		ft_close(void);
+		ft_close();
 	return (0);
 }

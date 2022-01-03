@@ -33,6 +33,6 @@ void	ft_escape(t_program *program, int next_sprite)
 	{
 		mlx_clear_window(program->mlx, program->window.reference);
 		printf("You won ! GG\n");
-		ft_close(void);
+		ft_close();
 	}
 }

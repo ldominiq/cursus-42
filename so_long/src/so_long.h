@@ -94,7 +94,7 @@ typedef struct s_program
 }				t_program;
 
 int			ft_new_window(int width, int height, char **map);
-void		ft_close(void);
+int			ft_close(void);
 int			ft_input(int key, t_program *program);
 void		ft_init_map(t_program *program);
 int			open_file(char *file_name);

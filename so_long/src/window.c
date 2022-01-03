@@ -12,7 +12,7 @@
 
 #include "so_long.h"
 
-void	ft_close(void)
+int	ft_close(void)
 {
 	exit(0);
 }
