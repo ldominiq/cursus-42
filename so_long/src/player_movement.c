@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   player_movement.c                                  :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: ldominiq <marvin@42lausanne.ch>            +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2021/01/03 22:01:34 by ldominiq          #+#    #+#             */
+/*   Updated: 2021/01/03 22:01:34 by ldominiq         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "so_long.h"
 
 void	ft_move_right(t_program *program)
@@ -19,7 +31,8 @@ void	ft_move_right(t_program *program)
 		program->map->map[current_pos] = '0';
 		program->map->map[next_pos] = 'P';
 		ft_add_player(program);
-		printf("Steps: %d | Pokeballs: %d\n", program->player->steps, program->player->balls);
+		printf("Steps: %d | Pokeballs: %d\n", program->player->steps,
+			program->player->balls);
 	}
 	ft_init_sprite("./img/trainer.xpm", program->player->player_pos->x,
 		program->player->player_pos->y, program);
@@ -44,7 +57,8 @@ void	ft_move_left(t_program *program)
 		program->map->map[current_pos] = '0';
 		program->map->map[next_pos] = 'P';
 		ft_add_player(program);
-		printf("Steps: %d | Pokeballs: %d\n", program->player->steps, program->player->balls);
+		printf("Steps: %d | Pokeballs: %d\n", program->player->steps,
+			program->player->balls);
 	}
 	ft_init_sprite("./img/trainer.xpm", program->player->player_pos->x,
 		program->player->player_pos->y, program);
@@ -69,7 +83,8 @@ void	ft_move_up(t_program *program)
 		program->map->map[current_pos] = '0';
 		program->map->map[next_pos] = 'P';
 		ft_add_player(program);
-		printf("Steps: %d | Pokeballs: %d\n", program->player->steps, program->player->balls);
+		printf("Steps: %d | Pokeballs: %d\n", program->player->steps,
+			program->player->balls);
 	}
 	ft_init_sprite("./img/trainer.xpm", program->player->player_pos->x,
 		program->player->player_pos->y, program);
@@ -94,7 +109,8 @@ void	ft_move_down(t_program *program)
 		program->map->map[current_pos] = '0';
 		program->map->map[next_pos] = 'P';
 		ft_add_player(program);
-		printf("Steps: %d | Pokeballs: %d\n", program->player->steps, program->player->balls);
+		printf("Steps: %d | Pokeballs: %d\n", program->player->steps,
+			program->player->balls);
 	}
 	ft_init_sprite("./img/trainer.xpm", program->player->player_pos->x,
 		program->player->player_pos->y, program);

@@ -1,9 +1,21 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   main.c                                             :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: ldominiq <marvin@42lausanne.ch>            +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2021/01/03 22:01:34 by ldominiq          #+#    #+#             */
+/*   Updated: 2021/01/03 22:01:34 by ldominiq         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "so_long.h"
 
 int	main(int argc, char *argv[])
 {
 	int			fd;
-    static char *map;
+	static char	*map;
 
 	if (ft_errors(argc))
 		return (1);
@@ -15,5 +27,5 @@ int	main(int argc, char *argv[])
 	read_map(fd, &map);
 	ft_free_ptr(&map);
 	close(fd);
-    return (0);
+	return (0);
 }

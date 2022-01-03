@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   so_long.h                                          :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: ldominiq <marvin@42lausanne.ch>            +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2021/01/03 22:01:34 by ldominiq          #+#    #+#             */
+/*   Updated: 2021/01/03 22:01:34 by ldominiq         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #ifndef SO_LONG_H
 # define SO_LONG_H
 
@@ -6,6 +18,7 @@
 # include "get_next_line.h"
 # include <unistd.h>
 # include <fcntl.h>
+# include <stdlib.h>
 
 # define SPRITE_SIZE 64
 
@@ -24,21 +37,21 @@
 # define KEY_LEFT 123
 
 /* vector with an x and y */
-typedef struct	s_vector
+typedef struct s_vector
 {
-	int	        x;
-	int	        y;
+	int			x;
+	int			y;
 }				t_vector;
 
 /* A pointer to the window and its size */
-typedef struct	s_window
+typedef struct s_window
 {
 	void		*reference;
 	t_vector	size;
 }				t_window;
 
 /* all info needed for an image */
-typedef struct	s_image
+typedef struct s_image
 {
 	void		*reference;
 	t_vector	size;
@@ -48,46 +61,46 @@ typedef struct	s_image
 	int			endian;
 }				t_image;
 
-typedef struct  s_player
+typedef struct s_player
 {
-    t_vector    *player_pos;
+	t_vector	*player_pos;
 	int			steps;
 	int			balls;
-}               t_player;
+}				t_player;
 
-typedef struct	s_balls
+typedef struct s_balls
 {
 	int			amount;
 }				t_balls;
 
-typedef struct	s_map
+typedef struct s_map
 {
-	char	    *map;
+	char		*map;
 	t_balls		*balls;
 }				t_map;
 
 typedef struct s_sprite
 {
-    t_image		sprite;
+	t_image		sprite;
 	t_vector	sprite_position;
-}               t_sprite;
+}				t_sprite;
 
-typedef struct	s_program
+typedef struct s_program
 {
 	void		*mlx;
 	t_window	window;
 	t_map		*map;
-    t_player    *player;
+	t_player	*player;
 }				t_program;
 
-int	        ft_new_window(int width, int height, char **map);
-int         ft_close();
+int			ft_new_window(int width, int height, char **map);
+void		ft_close(void);
 int			ft_input(int key, t_program *program);
-void        ft_init_map(t_program *program);
+void		ft_init_map(t_program *program);
 int			open_file(char *file_name);
-void	    read_map(int fd, char **map);
+void		read_map(int fd, char **map);
 int			ft_errors(int argc);
-void        ft_init(t_program *program);
+void		ft_init(t_program *program);
 void		ft_new_sprite(t_program *program, char *sprite_path, int type);
 void		ft_init_sprite(char *path, int x, int y, t_program *program);
 void		ft_add_player(t_program *program);

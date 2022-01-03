@@ -1,10 +1,22 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   image.c                                            :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: ldominiq <marvin@42lausanne.ch>            +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2021/01/03 22:01:34 by ldominiq          #+#    #+#             */
+/*   Updated: 2021/01/03 22:01:34 by ldominiq         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "so_long.h"
 
 void	ft_init_sprite(char *path, int x, int y, t_program *program)
 {
-	int 	width;
-	int 	height;
-	char 	*img;
+	int		width;
+	int		height;
+	char	*img;
 
 	img = mlx_xpm_file_to_image(program->mlx, path, &width, &height);
 	mlx_put_image_to_window(program->mlx, program->window.reference, img, x, y);
@@ -12,9 +24,9 @@ void	ft_init_sprite(char *path, int x, int y, t_program *program)
 
 void	ft_new_sprite(t_program *program, char *tile_path, int type)
 {
-	int i;
+	int	i;
 	int	x;
-	int y;
+	int	y;
 
 	x = -1;
 	y = -1;
@@ -24,7 +36,8 @@ void	ft_new_sprite(t_program *program, char *tile_path, int type)
 		while ((program->map->map)[++i] && program->window.size.x > ++x)
 		{
 			if ((program->map->map)[i] == type || type == 'G')
-				ft_init_sprite(tile_path, x * SPRITE_SIZE, y * SPRITE_SIZE, program);
+				ft_init_sprite(tile_path, x * SPRITE_SIZE, y * SPRITE_SIZE,
+					program);
 		}
 		x = -1;
 	}

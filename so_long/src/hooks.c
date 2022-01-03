@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   hooks.c                                            :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: ldominiq <marvin@42lausanne.ch>            +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2021/01/03 22:01:34 by ldominiq          #+#    #+#             */
+/*   Updated: 2021/01/03 22:01:34 by ldominiq         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "so_long.h"
 
 int	ft_input(int key, t_program *program)
@@ -6,7 +18,8 @@ int	ft_input(int key, t_program *program)
 		return (0);
 	ft_new_sprite(program, "./img/grass.xpm", '0');
 	ft_init_sprite("./img/grass.xpm",
-		program->player->player_pos->x, program->player->player_pos->y, program);
+		program->player->player_pos->x,
+		program->player->player_pos->y, program);
 	if (key == KEY_RIGHT || key == KEY_D)
 		ft_move_right(program);
 	else if (key == KEY_LEFT || key == KEY_A)
@@ -16,6 +29,6 @@ int	ft_input(int key, t_program *program)
 	else if (key == KEY_UP || key == KEY_W)
 		ft_move_up(program);
 	else if (key == KEY_ESC)
-		ft_close();
+		ft_close(void);
 	return (0);
 }
