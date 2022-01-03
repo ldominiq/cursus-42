@@ -20,11 +20,11 @@ int	ft_new_window(int width, int height, char **map)
 	program->mlx = mlx_init();
 	program->window.reference = mlx_new_window(program->mlx,
                                                program->window.size.x * SPRITE_SIZE,
-                                               program->window.size.y * SPRITE_SIZE, "Yeet");
+                                               program->window.size.y * SPRITE_SIZE, "PokeLong");
     ft_init_map(program);
-	// Now we 'hook' the function ft_close() to the closing window event
 	mlx_hook(program->window.reference, 17, 0, ft_close, 0);
     mlx_key_hook(program->window.reference, *ft_input, program);
     mlx_loop(program->mlx);
+	ft_free(program);
 	return (0);
 }

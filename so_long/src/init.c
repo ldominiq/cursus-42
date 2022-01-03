@@ -21,6 +21,7 @@ void	ft_init_map(t_program *program)
 	ft_new_sprite(program, "./img/grass.xpm", 'G');
 	ft_new_sprite(program, "./img/rock.xpm", '1');
 	ft_new_sprite(program, "./img/pokeball.xpm", 'C');
+	ft_new_sprite(program, "./img/exit_closed.xpm", 'E');
 	ft_init_player(program);
 	count_balls(program);
 }

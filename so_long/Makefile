@@ -11,7 +11,9 @@ SRCS 		= 	main.c \
 				player_handler.c \
 				player_movement.c \
 				utils.c \
-				collectibles.c
+				collectibles.c \
+				free.c \
+				map_validity.c
 
 SRC			= 	$(addprefix $(DIR), $(SRCS))
 
@@ -27,7 +29,7 @@ GCC			= 	gcc
 
 RM 			= 	rm -f
 
-CFLAGS 		= 	-Wall -Wextra -Werror
+CFLAGS 		= 	-fsanitize=address -Wall -Wextra -Werror
 
 MLX_PATH	= 	./mlx/
 
@@ -43,7 +45,7 @@ all: 		$(NAME)
 $(NAME): 	$(OBJS)
 			@$(MAKE) -C $(LBFT_PATH)
 			@$(MAKE) -C $(MLX_PATH)
-			$(GCC) $(OBJS) $(CFLAGS) -fsanitize=address -I ${MLX_PATH} -I ${LBFT_PATH} -o $(NAME) $(FRAMLIBS)
+			$(GCC) $(OBJS) $(CFLAGS) -I ${MLX_PATH} -I ${LBFT_PATH} -o $(NAME) $(FRAMLIBS)
 
 clean:
 			${RM} ${OBJS}

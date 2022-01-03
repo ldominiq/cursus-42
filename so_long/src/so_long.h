@@ -99,5 +99,12 @@ void		ft_move_down(t_program *program);
 int			ft_search_key(int key);
 void		count_balls(t_program *program);
 void		ft_collect(t_program *program, int ball_pos);
+void		ft_free(t_program *program);
+void		ft_escape(t_program *program, int next_sprite);
+void		ft_free_ptr(char **ptr);
+int			check_map_name(char *str);
+void		check_map_shape(int width, char *line, char **save);
+int			check_map_validity(char **result);
+int			check_map_border(char **map, int width);
 
 #endif

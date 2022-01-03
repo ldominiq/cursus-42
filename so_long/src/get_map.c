@@ -5,9 +5,14 @@ int	open_file(char *file_name)
 	int fd;
 
 	fd = open(file_name, O_RDONLY);
+	if (!check_map_name(file_name))
+	{
+		printf("Error\nMap extension is incorrect. (.ber)\n");
+		return (-1);
+	}
 	if (fd == -1)
 	{
-		printf("An error occurred when opening the map.");
+		printf("Error\nAn error occurred when opening the map file.\n");
 		return (fd);
 	}
 	return (fd);
@@ -27,7 +32,10 @@ void	read_map(int fd, char **map)
 	{
 		height++;
 		*map = ft_strjoin(*map, tmp);
+		check_map_shape(width, tmp, map);
 		tmp = get_next_line(fd);
 	}
-	ft_new_window(width, height, map);
+	if(check_map_validity(map) && check_map_border(map, width))
+		ft_new_window(width, height, map);
+	ft_free_ptr(map);
 }

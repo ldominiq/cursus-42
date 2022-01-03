@@ -16,7 +16,7 @@ void	init_keys(int *keys)
 int	ft_search_key(int key)
 {
 	int			i;
-	static int	keys[8];
+	static int	keys[9];
 
 	if (!keys[0])
 		init_keys(keys);

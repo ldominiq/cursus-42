@@ -1,8 +1,5 @@
 #include "so_long.h"
 
-/* Any functon that you hook with the key event must be like this:
-* Recibing and int for the code of the key pressed
-* and a void pointer in case you need to recibe someting */
 int	ft_input(int key, t_program *program)
 {
 	if (!ft_search_key(key))

@@ -9,7 +9,8 @@ void	ft_move_right(t_program *program)
 	current_pos = ft_strchr_pos(program->map->map, 'P');
 	next_pos = current_pos + 1;
 	next_sprite = program->map->map[next_pos];
-	if (next_sprite != '1')
+	ft_escape(program, next_sprite);
+	if (next_sprite != '1' && next_sprite != 'E')
 	{
 		program->player->player_pos->x += SPRITE_SIZE;
 		if (next_sprite == 'C')
@@ -33,7 +34,8 @@ void	ft_move_left(t_program *program)
 	current_pos = ft_strchr_pos(program->map->map, 'P');
 	next_pos = current_pos - 1;
 	next_sprite = program->map->map[next_pos];
-	if (next_sprite != '1')
+	ft_escape(program, next_sprite);
+	if (next_sprite != '1' && next_sprite != 'E')
 	{
 		program->player->player_pos->x -= SPRITE_SIZE;
 		if (next_sprite == 'C')
@@ -57,7 +59,8 @@ void	ft_move_up(t_program *program)
 	current_pos = ft_strchr_pos(program->map->map, 'P');
 	next_pos = current_pos - (program->window.size.x + 1);
 	next_sprite = program->map->map[next_pos];
-	if (next_sprite != '1')
+	ft_escape(program, next_sprite);
+	if (next_sprite != '1' && next_sprite != 'E')
 	{
 		program->player->player_pos->y -= SPRITE_SIZE;
 		if (next_sprite == 'C')
@@ -81,7 +84,8 @@ void	ft_move_down(t_program *program)
 	current_pos = ft_strchr_pos(program->map->map, 'P');
 	next_pos = current_pos + (program->window.size.x + 1);
 	next_sprite = program->map->map[next_pos];
-	if (next_sprite != '1')
+	ft_escape(program, next_sprite);
+	if (next_sprite != '1' && next_sprite != 'E')
 	{
 		program->player->player_pos->y += SPRITE_SIZE;
 		if (next_sprite == 'C')
