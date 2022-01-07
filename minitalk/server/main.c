@@ -3,9 +3,9 @@
 #include <sys/wait.h>
 #include <signal.h>
 
-void handle_sigstp(int sig)
+void handle_sigusr1(int sig)
 {
-	printf("Stop not allowed\n");
+	printf("Yehee\n");
 }
 
 int main(int argc, char *argv[])
@@ -13,14 +13,16 @@ int main(int argc, char *argv[])
 	struct sigaction sa;
 	int x;
 
-	sa.sa_handler = &handle_sigstp;
+//	sleep(5);
+//	kill(getpid(), SIGUSR1);
+	sa.sa_handler = &handle_sigusr1;
 	sa.sa_flags = SA_RESTART;
-	//sigaction(SIGTSTP, &sa, NULL);
+	sigaction(SIGUSR1, &sa, NULL);
 
 	//signal(SIGTSTP, &handle_sigstp);
-	printf("Input: ");
-	scanf("%d", &x);
-	printf("Result %d * 5 = %d\n", x, x * 5);
+//	printf("Input: ");
+//	scanf("%d", &x);
+//	printf("Result %d * 5 = %d\n", x, x * 5);
 //	int pid;
 //
 //	pid = fork();
