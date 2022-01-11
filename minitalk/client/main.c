@@ -1,5 +1,8 @@
 #include <stdio.h>
 #include <signal.h>
+#include <stdlib.h>
+#include <string.h>
+#include <unistd.h>
 
 int	ft_atoi(const char *str)
 {
@@ -28,16 +31,66 @@ int	ft_atoi(const char *str)
 	return (value * sign);
 }
 
+size_t	ft_strlen(const char *str)
+{
+	int	i;
+
+	i = -1;
+	while (str[++i])
+		;
+	return (i);
+}
+
+char	*str_to_binary(char *str, int pid) {
+    size_t	len;
+    char	*binary;
+	size_t	i;
+	int		j;
+	char	c;
+
+	if (str == NULL)
+		return (0);
+	i = -1;
+	len = ft_strlen(str);
+	binary = malloc((len * 8) + 1);
+    binary[0] = '\0';
+	while (++i < len)
+	{
+		c = str[i];
+		j = 8;
+		while (--j >= 0)
+		{
+			if (c & (1 << j))
+				strcat(binary, "1");
+			else
+				strcat(binary, "0");
+		}
+	}
+	return (binary);
+}
+
 int main(int argc, char *argv[])
 {
-	int	pid;
+	int		pid;
+	char	*bin;
+	int		i;
 
 	if (argc != 3)
 	{
 		printf("Args error !\n");
 		return (1);
 	}
+	i = -1;
 	pid = ft_atoi(argv[1]);
-	kill(pid, SIGUSR1);
+	bin = str_to_binary(argv[2], pid);
+	printf("binary: %s\n", bin);
+	while (bin[++i])
+	{
+		if (bin[i] == '0')
+			kill(pid, SIGUSR1);
+		else
+			kill(pid, SIGUSR2);
+		usleep(10);
+	}
 	return (0);
 }

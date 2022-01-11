@@ -3,9 +3,12 @@
 #include <sys/wait.h>
 #include <signal.h>
 
-void handle_sigusr1(int sig)
+void handle_sigusr(int sig)
 {
-	printf("SIGNAL RECEIVED\n");
+	if (sig == SIGUSR1)
+		write(1, "0", 1);
+	else if (sig == SIGUSR2)
+		write(1, "1", 1);
 }
 
 int main(int argc, char *argv[])
@@ -13,16 +16,15 @@ int main(int argc, char *argv[])
 	struct sigaction sa;
 	int x;
 
-	sa.sa_handler = &handle_sigusr1;
-	sa.sa_flags = SA_RESTART;
+	sa.sa_handler = &handle_sigusr;
+	sa.sa_flags = SA_SIGINFO;
 	sigaction(SIGUSR1, &sa, NULL);
+	sigaction(SIGUSR2, &sa, NULL);
 
-	printf("pid: %d\n", getpid());
+	printf("Server pid: %d\n", getpid());
 	while(1)
 	{
-		printf("Waiting for signal\n");
 		pause();
-		sleep(1);
 	}
 	return (0);
 }
