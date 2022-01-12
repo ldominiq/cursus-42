@@ -47,6 +47,7 @@ char	*str_to_binary(char *str, int pid) {
 	size_t	i;
 	int		j;
 	char	c;
+	int		test;
 
 	if (str == NULL)
 		return (0);
@@ -60,10 +61,11 @@ char	*str_to_binary(char *str, int pid) {
 		j = 8;
 		while (--j >= 0)
 		{
-			if (c & (1 << j))
+			if (c & 1 << j)
 				strcat(binary, "1");
 			else
 				strcat(binary, "0");
+			//printf("%d : %c = %d\n", 1 << j, c, 1 << j & c);
 		}
 	}
 	return (binary);
@@ -83,7 +85,7 @@ int main(int argc, char *argv[])
 	i = -1;
 	pid = ft_atoi(argv[1]);
 	bin = str_to_binary(argv[2], pid);
-	printf("binary: %s\n", bin);
+	printf("text: %s | binary: %s\n", argv[2], bin);
 	while (bin[++i])
 	{
 		if (bin[i] == '0')
@@ -92,5 +94,6 @@ int main(int argc, char *argv[])
 			kill(pid, SIGUSR2);
 		usleep(10);
 	}
+	free(bin);
 	return (0);
 }
