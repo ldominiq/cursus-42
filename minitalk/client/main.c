@@ -41,20 +41,14 @@ size_t	ft_strlen(const char *str)
 	return (i);
 }
 
-char	*str_to_binary(char *str, int pid) {
+void	send_message(char *str, int pid) {
     size_t	len;
-    char	*binary;
 	size_t	i;
 	int		j;
 	char	c;
-	int		test;
 
-	if (str == NULL)
-		return (0);
 	i = -1;
 	len = ft_strlen(str);
-	binary = malloc((len * 8) + 1);
-    binary[0] = '\0';
 	while (++i < len)
 	{
 		c = str[i];
@@ -62,19 +56,18 @@ char	*str_to_binary(char *str, int pid) {
 		while (--j >= 0)
 		{
 			if (c & 1 << j)
-				strcat(binary, "1");
+				kill(pid, SIGUSR1);
 			else
-				strcat(binary, "0");
+				kill(pid, SIGUSR2);
+			usleep(80);
 			//printf("%d : %c = %d\n", 1 << j, c, 1 << j & c);
 		}
 	}
-	return (binary);
 }
 
 int main(int argc, char *argv[])
 {
 	int		pid;
-	char	*bin;
 	int		i;
 
 	if (argc != 3)
@@ -84,16 +77,6 @@ int main(int argc, char *argv[])
 	}
 	i = -1;
 	pid = ft_atoi(argv[1]);
-	bin = str_to_binary(argv[2], pid);
-	printf("text: %s | binary: %s\n", argv[2], bin);
-	while (bin[++i])
-	{
-		if (bin[i] == '0')
-			kill(pid, SIGUSR1);
-		else
-			kill(pid, SIGUSR2);
-		usleep(10);
-	}
-	free(bin);
+	send_message(argv[2], pid);
 	return (0);
 }
