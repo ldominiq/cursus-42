@@ -18,3 +18,10 @@
 | [so_long](https://github.com/ldominiq/so_long) | ```C``` | ```Graphics``` ```2D```| [![Score](https://badge42.herokuapp.com/api/project/ldominiq/so_long)]() |
 | [minitalk](https://github.com/ldominiq/minitalk) | ```C``` | ```Rigor``` ```Unix signals```| [![Score](https://badge42.herokuapp.com/api/project/ldominiq/minitalk)]() |
 | [push_swap](https://github.com/ldominiq/push_swap) | ```C``` |  ```Sorting algorithms``` | [![Score](https://badge42.herokuapp.com/api/project/ldominiq/push_swap)]() |
+| Exam Rank 02 | ```C``` |  | [![Score](https://badge42.herokuapp.com/api/project/ldominiq/exam-rank-02)]() |
+
+#### Rank 3
+| Name | Language | Topics | Status | 
+|---|---|---|---|
+| [so_long](https://github.com/ldominiq/philosophers) | ```C``` | ```Imperative programming``` ```Rigor``` ```Unix``` | [![Score](https://badge42.herokuapp.com/api/project/ldominiq/philosophers)]() |
+| [minitalk](https://github.com/ldominiq/minishell) | ```C``` | ```Imperative programming``` ```Rigor``` ```Unix``` | [![Score](https://badge42.herokuapp.com/api/project/ldominiq/minishell)]() |
