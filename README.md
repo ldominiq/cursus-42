@@ -23,5 +23,5 @@
 #### Rank 3
 | Name | Language | Topics | Status | 
 |---|---|---|---|
-| [so_long](https://github.com/ldominiq/philosophers) | ```C``` | ```Imperative programming``` ```Rigor``` ```Unix``` | [![Score](https://badge42.herokuapp.com/api/project/ldominiq/philosophers)]() |
-| [minitalk](https://github.com/ldominiq/minishell) | ```C``` | ```Imperative programming``` ```Rigor``` ```Unix``` | [![Score](https://badge42.herokuapp.com/api/project/ldominiq/minishell)]() |
+| [philosophers](https://github.com/ldominiq/philosophers) | ```C``` | ```Imperative programming``` ```Rigor``` ```Unix``` | [![Score](https://badge42.herokuapp.com/api/project/ldominiq/philosophers)]() |
+| [minishell](https://github.com/ldominiq/minishell) | ```C``` | ```Imperative programming``` ```Rigor``` ```Unix``` | [![Score](https://badge42.herokuapp.com/api/project/ldominiq/minishell)]() |
