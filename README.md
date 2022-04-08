@@ -3,25 +3,25 @@
 #### Rank 0
 | Name | Language | Topics | Status | 
 |---|---|---|---|
-| [Libft](https://github.com/ldominiq/Libft) | ```C``` | ```Makefile``` ```Library``` ```Function``` | [![Score](https://badge42.herokuapp.com/api/project/ldominiq/Libft)]() |
+| [Libft](https://github.com/ldominiq/Libft) | ```C``` | ```Makefile``` ```Library``` ```Function``` | [![ldominiq's 42 Libft Score](https://badge42.vercel.app/api/v2/cl1qf15d5010409mt0prsz6nq/project/2371250)](https://github.com/JaeSeoKim/badge42) |
 
 #### Rank 1
 | Name | Language | Topics | Status | 
 |---|---|---|---|
-| [get_next_line](https://github.com/ldominiq/get_next_line) | ```C``` | ```Unix``` ```Algorithms & AI``` | [![Score](https://badge42.herokuapp.com/api/project/ldominiq/get_next_line)]() |
-| [ft_printf](https://github.com/ldominiq/ft_printf) | ```C``` | ```Unix``` ```Algorithms & AI``` | [![Score](https://badge42.herokuapp.com/api/project/ldominiq/ft_printf)]() |
-| [Born2beroot](https://github.com/ldominiq/born2beroot) | ```Shell``` |  ```Network``` ```sys admin``` | [![Score](https://badge42.herokuapp.com/api/project/ldominiq/Born2beroot)]() |
+| [get_next_line](https://github.com/ldominiq/get_next_line) | ```C``` | ```Unix``` ```Algorithms & AI``` | [![ldominiq's 42 get_next_line Score](https://badge42.vercel.app/api/v2/cl1qf15d5010409mt0prsz6nq/project/2383681)](https://github.com/JaeSeoKim/badge42) |
+| [ft_printf](https://github.com/ldominiq/ft_printf) | ```C``` | ```Unix``` ```Algorithms & AI``` | [![ldominiq's 42 ft_printf Score](https://badge42.vercel.app/api/v2/cl1qf15d5010409mt0prsz6nq/project/2383683)](https://github.com/JaeSeoKim/badge42) |
+| [Born2beroot](https://github.com/ldominiq/born2beroot) | ```Shell``` |  ```Network``` ```sys admin``` | [![ldominiq's 42 Born2beroot Score](https://badge42.vercel.app/api/v2/cl1qf15d5010409mt0prsz6nq/project/2383679)](https://github.com/JaeSeoKim/badge42) |
 
 #### Rank 2
 | Name | Language | Topics | Status | 
 |---|---|---|---|
-| [so_long](https://github.com/ldominiq/so_long) | ```C``` | ```Graphics``` ```2D```| [![Score](https://badge42.herokuapp.com/api/project/ldominiq/so_long)]() |
-| [minitalk](https://github.com/ldominiq/minitalk) | ```C``` | ```Rigor``` ```Unix signals```| [![Score](https://badge42.herokuapp.com/api/project/ldominiq/minitalk)]() |
-| [push_swap](https://github.com/ldominiq/push_swap) | ```C``` |  ```Sorting algorithms``` | [![Score](https://badge42.herokuapp.com/api/project/ldominiq/push_swap)]() |
-| Exam Rank 02 | ```C``` |  | [![Score](https://badge42.herokuapp.com/api/project/ldominiq/exam-rank-02)]() |
+| [so_long](https://github.com/ldominiq/so_long) | ```C``` | ```Graphics``` ```2D```| [![ldominiq's 42 so_long Score](https://badge42.vercel.app/api/v2/cl1qf15d5010409mt0prsz6nq/project/2429139)](https://github.com/JaeSeoKim/badge42) |
+| [minitalk](https://github.com/ldominiq/minitalk) | ```C``` | ```Rigor``` ```Unix signals```| [![ldominiq's 42 minitalk Score](https://badge42.vercel.app/api/v2/cl1qf15d5010409mt0prsz6nq/project/2451117)](https://github.com/JaeSeoKim/badge42) |
+| [push_swap](https://github.com/ldominiq/push_swap) | ```C``` |  ```Sorting algorithms``` | [![ldominiq's 42 push_swap Score](https://badge42.vercel.app/api/v2/cl1qf15d5010409mt0prsz6nq/project/2522336)](https://github.com/JaeSeoKim/badge42) |
+| Exam Rank 02 | ```C``` |  | [![ldominiq's 42 Exam Rank 02 Score](https://badge42.vercel.app/api/v2/cl1qf15d5010409mt0prsz6nq/project/2462157)](https://github.com/JaeSeoKim/badge42) |
 
 #### Rank 3
 | Name | Language | Topics | Status | 
 |---|---|---|---|
-| [philosophers](https://github.com/ldominiq/philosophers) | ```C``` | ```Imperative programming``` ```Rigor``` ```Unix``` | [![Score](https://badge42.herokuapp.com/api/project/ldominiq/philosophers)]() |
-| [minishell](https://github.com/ldominiq/minishell) | ```C``` | ```Imperative programming``` ```Rigor``` ```Unix``` | [![Score](https://badge42.herokuapp.com/api/project/ldominiq/minishell)]() |
+| [philosophers](https://github.com/ldominiq/philosophers) | ```C``` | ```Imperative programming``` ```Rigor``` ```Unix``` | [![ldominiq's 42 Philosophers Score](https://badge42.vercel.app/api/v2/cl1qf15d5010409mt0prsz6nq/project/2530986)](https://github.com/JaeSeoKim/badge42) |
+| [minishell](https://github.com/ldominiq/minishell) | ```C``` | ```Imperative programming``` ```Rigor``` ```Unix``` | [![ldominiq's 42 minishell Score](https://badge42.vercel.app/api/v2/cl1qf15d5010409mt0prsz6nq/project/2530985)](https://github.com/JaeSeoKim/badge42) |
