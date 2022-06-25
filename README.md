@@ -46,5 +46,5 @@
 #### Rank 6
 | Name | Language | Topics | Status | 
 |---|---|---|---|
-| ft_transcendence | | ```Rigor``` ```Web``` ```Group & interpersonal``` | |
+| ft_transcendence | ```TS``` | ```Rigor``` ```Web``` ```Group & interpersonal``` | |
 | Exam Rank 06 | |  | |
