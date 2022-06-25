@@ -34,3 +34,17 @@
 | cub3d | ```C``` | ```Rigor``` ```Imperative programming``` ```Graphics``` ```Algorithms & AI``` | |
 | CPP Piscine | ```C++``` | ```Object-oriented programming``` ```Rigor``` ```Imperative programming``` | |
 | Exam Rank 04 | ```C``` |  | |
+
+#### Rank 5
+| Name | Language | Topics | Status | 
+|---|---|---|---|
+| ft_containers | ```C++``` | ```Object-oriented programming``` ```Rigor``` | |
+| Inception | ```Docker``` | ```Network & system administration``` ```Rigor``` | |
+| webserv / ft_irc | ```C++``` | ```Network & system administration``` ```Object-oriented programming``` ```Rigor``` ```Unix``` | |
+| Exam Rank 05 | ```C++``` |  | |
+
+#### Rank 6
+| Name | Language | Topics | Status | 
+|---|---|---|---|
+| ft_transcendence | | ```Rigor``` ```Web``` ```Group & interpersonal``` | |
+| Exam Rank 06 | |  | |
