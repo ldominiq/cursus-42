@@ -3,7 +3,7 @@
 #### Rank 0
 | Name | Language | Topics | Status | 
 |---|---|---|---|
-| [Libft](https://github.com/ldominiq/tree/master/cursus-42/libft) | ```C``` | ```Makefile``` ```Library``` ```Function``` | [![ldominiq's 42 Libft Score](https://badge42.vercel.app/api/v2/cl1qf15d5010409mt0prsz6nq/project/2371250)](https://github.com/JaeSeoKim/badge42) |
+| [Libft](https://github.com/ldominiq/cursus-42/tree/master/libft) | ```C``` | ```Makefile``` ```Library``` ```Function``` | [![ldominiq's 42 Libft Score](https://badge42.vercel.app/api/v2/cl1qf15d5010409mt0prsz6nq/project/2371250)](https://github.com/JaeSeoKim/badge42) |
 
 #### Rank 1
 | Name | Language | Topics | Status | 
