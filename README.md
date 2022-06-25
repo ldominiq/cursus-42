@@ -25,3 +25,12 @@
 |---|---|---|---|
 | [philosophers](https://github.com/ldominiq/philosophers) | ```C``` | ```Imperative programming``` ```Rigor``` ```Unix``` | [![ldominiq's 42 Philosophers Score](https://badge42.vercel.app/api/v2/cl1qf15d5010409mt0prsz6nq/project/2530986)](https://github.com/JaeSeoKim/badge42) |
 | [minishell](https://github.com/ldominiq/minishell) | ```C``` | ```Imperative programming``` ```Rigor``` ```Unix``` | [![ldominiq's 42 minishell Score](https://badge42.vercel.app/api/v2/cl1qf15d5010409mt0prsz6nq/project/2530985)](https://github.com/JaeSeoKim/badge42) |
+| Exam Rank 03 | ```C``` |  | [![ldominiq's 42 Exam Rank 03 Score](https://badge42.vercel.app/api/v2/cl1qf15d5010409mt0prsz6nq/project/2620440)](https://github.com/JaeSeoKim/badge42) |
+
+#### Rank 4
+| Name | Language | Topics | Status | 
+|---|---|---|---|
+| NetPratice | | ```Network & system administration``` ```Rigor``` | |
+| cub3d | ```C``` | ```Rigor``` ```Imperative programming``` ```Graphics``` ```Algorithms & AI``` | |
+| CPP Piscine | ```C++``` | ```Object-oriented programming``` ```Rigor``` ```Imperative programming``` | |
+| Exam Rank 04 | ```C``` |  | |
