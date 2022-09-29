@@ -30,8 +30,8 @@
 #### Rank 4
 | Name | Language | Topics | Status | 
 |---|---|---|---|
-| NetPratice | | ```Network & system administration``` ```Rigor``` | |
-| cub3d | ```C``` | ```Rigor``` ```Imperative programming``` ```Graphics``` ```Algorithms & AI``` | |
+| NetPratice | | ```Network & system administration``` ```Rigor``` | [![ldominiq's 42 NetPractice Score](https://badge42.vercel.app/api/v2/cl1qf15d5010409mt0prsz6nq/project/2805180)](https://github.com/JaeSeoKim/badge42) |
+| cub3d | ```C``` | ```Rigor``` ```Imperative programming``` ```Graphics``` ```Algorithms & AI``` | [![ldominiq's 42 cub3d Score](https://badge42.vercel.app/api/v2/cl1qf15d5010409mt0prsz6nq/project/2644441)](https://github.com/JaeSeoKim/badge42) |
 | CPP Piscine | ```C++``` | ```Object-oriented programming``` ```Rigor``` ```Imperative programming``` | |
 | Exam Rank 04 | ```C``` |  | |
 
