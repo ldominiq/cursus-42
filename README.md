@@ -38,10 +38,10 @@
 #### Rank 5
 | Name | Language | Topics | Status | 
 |---|---|---|---|
-| ft_containers | ```C++``` | ```Object-oriented programming``` ```Rigor``` | |
-| Inception | ```Docker``` | ```Network & system administration``` ```Rigor``` | |
+| ft_containers | ```C++``` | ```Object-oriented programming``` ```Rigor``` | [![ldominiq's 42 ft_containers Score](https://badge42.vercel.app/api/v2/cl1qf15d5010409mt0prsz6nq/project/2896012)](https://github.com/JaeSeoKim/badge42) |
+| Inception | ```Docker``` | ```Network & system administration``` ```Rigor``` | [![ldominiq's 42 Inception Score](https://badge42.vercel.app/api/v2/cl1qf15d5010409mt0prsz6nq/project/2913333)](https://github.com/JaeSeoKim/badge42) |
 | webserv / ft_irc | ```C++``` | ```Network & system administration``` ```Object-oriented programming``` ```Rigor``` ```Unix``` | |
-| Exam Rank 05 | ```C++``` |  | |
+| Exam Rank 05 | ```C++``` |  | [![ldominiq's 42 Exam Rank 05 Score](https://badge42.vercel.app/api/v2/cl1qf15d5010409mt0prsz6nq/project/2896031)](https://github.com/JaeSeoKim/badge42) |
 
 #### Rank 6
 | Name | Language | Topics | Status | 
