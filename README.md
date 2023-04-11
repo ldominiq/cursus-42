@@ -47,4 +47,4 @@
 | Name | Language | Topics | Status | 
 |---|---|---|---|
 | ft_transcendence | ```TS``` | ```Rigor``` ```Web``` ```Group & interpersonal``` | |
-| Exam Rank 06 | |  | https://badge42.vercel.app/api/v2/cl1qf15d5010409mt0prsz6nq/project/3061517 |
+| Exam Rank 06 | |  | [![ldominiq's 42 Exam Rank 06 Score](https://badge42.vercel.app/api/v2/cl1qf15d5010409mt0prsz6nq/project/3061517)](https://github.com/JaeSeoKim/badge42) |
